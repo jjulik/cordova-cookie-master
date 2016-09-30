@@ -1,8 +1,9 @@
 cordova.commandProxy.add("CookieMaster", {
     getCookieValue: function (successCallback, errorCallback, url, name) {
         var myFilter = new Windows.Web.Http.Filters.HttpBaseProtocolFilter();
-        var cookieManager = myFilter.cookieManager; 
-        var cookies = cookieManager.getCookies(url);
+        var cookieManager = myFilter.cookieManager;
+        var uri = new Windows.Foundation.Uri(url); 
+        var cookies = cookieManager.getCookies(uri);
         for (var i = 0; i < cookies.length; i++) {
             if (cookies[i].name === name) {
                 return cookies[i].value;
