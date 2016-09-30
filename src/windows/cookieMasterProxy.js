@@ -1,5 +1,7 @@
 cordova.commandProxy.add("CookieMaster", {
-    getCookieValue: function (successCallback, errorCallback, url, name) {
+    getCookieValue: function (successCallback, errorCallback, args) {
+        var url = args[0];
+        var name = args[1];
         var myFilter = new Windows.Web.Http.Filters.HttpBaseProtocolFilter();
         var cookieManager = myFilter.cookieManager;
         var uri = new Windows.Foundation.Uri(url); 
@@ -11,7 +13,10 @@ cordova.commandProxy.add("CookieMaster", {
         }
         return undefined;
     },
-    setCookieValue: function (successCallback, errorCallback, url, name, value) {
+    setCookieValue: function (successCallback, errorCallback, args) {
+        var url = args[0];
+        var name = args[1];
+        var value = args[2];
         var myFilter = new Windows.Web.Http.Filters.HttpBaseProtocolFilter();
         var cookieManager = myFilter.cookieManager; 
         // url should actually be the domain here, and the empty string is the path
