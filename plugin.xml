@@ -41,5 +41,12 @@
         </config-file>
  
         <source-file src="src/android/com/cordova/plugins/cookiemaster/CookieMaster.java" target-dir="src/com/cordova/plugins/cookiemaster" />      
-    </platform>          
+    </platform>
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/cookieMasterProxy.js" name="CookieMasterProxy">
+            <merges target="" />
+        </js-module>
+    </platform>   
 </plugin>
